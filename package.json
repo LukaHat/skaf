@@ -1,0 +1,19 @@
+{
+  "name": "skaf",
+  "version": "0.0.1",
+  "description": "Opinionated scaffolding tool for Express and React Typescript projects",
+  "license": "MIT",
+  "author": "Luka Hat",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && tsc && cp -r templates dist/"
+  },
+  "bin": {
+    "skaf": "./dist/index.js"
+  },
+  "files": ["dist", "templates"],
+  "engines": {
+    "node": ">=22"
+  }
+  
+}
