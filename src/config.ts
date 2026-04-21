@@ -45,7 +45,8 @@ const isSkafConfig = (objectToCheck: unknown): objectToCheck is SkafConfig => {
     const containsSrcDir =
       (objectToCheck as Record<string, unknown>) &&
       "srcDir" in objectToCheck &&
-      typeof objectToCheck.srcDir === "string";
+      typeof objectToCheck.srcDir === "string" &&
+      objectToCheck.srcDir.trim().length > 0;
 
     if (stackSupported && containsSrcDir) return true;
   }
