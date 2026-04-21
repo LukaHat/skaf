@@ -1,4 +1,4 @@
-enum SupportedStacks {
+export enum SupportedStacks {
   express = "ExpressJs",
   react = "ReactJs",
 }

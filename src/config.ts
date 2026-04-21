@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { SkafConfig } from "./types";
+import { SkafConfig, SupportedStacks } from "./types";
 
 export const loadConfig = (): SkafConfig => {
   const configPath = path.join(process.cwd(), ".skafc");
@@ -9,9 +9,9 @@ export const loadConfig = (): SkafConfig => {
     const rawConfig = fs.readFileSync(configPath, "utf-8");
     const parsedConfig = JSON.parse(rawConfig);
 
-    if (!parsedConfig.stack || !parsedConfig.srcDir)
+    if (!isSkafConfig(parsedConfig))
       throw new Error(
-        'Invalid .skafc: missing required fields "stack" and "srcDir"',
+        'Invalid .skafc: missing or invalid required fields "stack" and "srcDir". srcDir should be a path to your source directory and stack should be one of the supported stacks. Please check https://github.com/LukaHat/skaf',
       );
     return parsedConfig as SkafConfig;
   } catch (error) {
@@ -28,4 +28,25 @@ export const loadConfig = (): SkafConfig => {
     }
     throw new Error(`Could not load .skaf config: ${(error as Error).message}`);
   }
+};
+
+const isSkafConfig = (objectToCheck: unknown): objectToCheck is SkafConfig => {
+  const nonNullObject =
+    typeof objectToCheck === "object" && objectToCheck !== null;
+  if (nonNullObject) {
+    const stackSupported =
+      (objectToCheck as Record<string, unknown>) &&
+      "stack" in objectToCheck &&
+      Object.values(SupportedStacks).includes(
+        objectToCheck.stack as SupportedStacks,
+      );
+
+    const containsSrcDir =
+      (objectToCheck as Record<string, unknown>) &&
+      "srcDir" in objectToCheck &&
+      typeof objectToCheck.srcDir === "string";
+
+    if (stackSupported && containsSrcDir) return true;
+  }
+  return false;
 };
