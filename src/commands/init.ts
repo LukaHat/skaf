@@ -9,6 +9,11 @@ export const initCommand = async (
   options: InitOptions,
 ) => {
   try {
+    if (!/^[a-zA-Z0-9_-]+$/.test(projectName))
+      throw new Error(
+        "Invalid project name. Use only letters, numbers, hyphens, and underscores.",
+      );
+
     const dirExists = existsSync(join(cwd(), projectName));
     if (dirExists) {
       const overwriteDir = await confirm({
