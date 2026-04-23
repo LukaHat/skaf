@@ -19,7 +19,7 @@ export const initCommand = async (
       const overwriteDir = await confirm({
         message: `Looks like a directory named ${projectName} already exists. Do you want to overwrite it?`,
       });
-      if (!overwriteDir) process.exit(0);
+      if (!overwriteDir) return;
       rmSync(join(cwd(), projectName), { recursive: true, force: true });
     }
 
