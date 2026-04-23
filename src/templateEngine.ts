@@ -44,11 +44,11 @@ export const renderTemplate = (
 
     const placeholdersReplaced = template.replace(
       /{{\s*(\w+)\s*}}/g,
-      (_, key: keyof ResourceContext) => {
-        if (!(key in context)) {
-          throw new Error(`Unknown placeholder: ${key}`);
+      (_, rawKey: keyof ResourceContext) => {
+        if (!Object.prototype.hasOwnProperty.call(context, rawKey)) {
+          throw new Error(`Unknown placeholder: ${rawKey}`);
         }
-        return context[key];
+        return context[rawKey];
       },
     );
 
