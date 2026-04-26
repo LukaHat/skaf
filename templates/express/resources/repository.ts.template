@@ -1,0 +1,15 @@
+import { injectable } from "inversify"
+
+@injectable()
+export class {{resourceClass}}Repository{
+
+    getAll = async () => {}
+
+    getById = async () => {}
+
+    create = async () => {}
+
+    update = async () => {}
+
+    delete = async () => {}
+}

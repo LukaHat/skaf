@@ -1,0 +1,54 @@
+import { injectable, inject } from "inversify"
+import { Request, Response, NextFunction } from "express"
+import { {{resourceClass}}Repository } from "../repositories/{{resourceFile}}Repository"
+import { TYPES } from "../di/types"
+
+@injectable()
+export class {{resourceClass}}Controller {
+    private _{{resourceVar}}Repository: {{resourceClass}}Repository
+
+    constructor(@inject(TYPES.{{resourceClass}}Repository) {{resourceVar}}Repository: {{resourceClass}}Repository
+    ){
+        this._{{resourceVar}}Repository = {{resourceVar}}Repository
+    } 
+
+    getAll = async(req: Request, res: Response, next: NextFunction) => {
+        try{
+
+        } catch(error){
+            next(error)
+        }
+    }
+
+     getById= async(req: Request, res: Response, next: NextFunction) => {
+        try{
+
+        } catch(error){
+            next(error)
+        }
+    }
+
+     create = async(req: Request, res: Response, next: NextFunction) => {
+        try{
+
+        } catch(error){
+            next(error)
+        }
+    }
+
+     update = async(req: Request, res: Response, next: NextFunction) => {
+        try{
+
+        } catch(error){
+            next(error)
+        }
+    }
+
+     delete = async(req: Request, res: Response, next: NextFunction) => {
+        try{
+
+        } catch(error){
+            next(error)
+        }
+    }
+}
