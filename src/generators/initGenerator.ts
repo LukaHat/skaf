@@ -17,6 +17,8 @@ export const generatePackageJSON = (
       cors: "^2.8.6",
       dotenv: "^17.3.1",
       express: "^5.2.1",
+      inversify: "^7.11.0",
+      "reflect-metadata": "^0.2.2",
 
       ...(options.auth && {
         argon2: "^0.44.0",
