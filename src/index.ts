@@ -4,6 +4,7 @@ import { Option, program } from "commander";
 import { version } from "../package.json";
 import { initCommand } from "./commands/init";
 import { SupportedDBs, SupportedOrms, SupportedStacks } from "./types";
+import { addCommand } from "./commands/add";
 
 program
   .name("skaf")
@@ -41,9 +42,10 @@ program
 
 program
   .command("add <resource>")
+  .option("-f, --force", "overwrite existing files", false)
   .description("Implement scaffolding for given resource")
-  .action((resource) => {
-    console.log("not implemented yet", resource);
+  .action((resource, options) => {
+    addCommand(resource, options);
   });
 
 program

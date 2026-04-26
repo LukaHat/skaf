@@ -50,7 +50,7 @@ export const initCommand = async (
 
     writeFileSync(
       join(cwd(), projectName, ".skafc"),
-      JSON.stringify(options, null, 2),
+      JSON.stringify({ ...options, srcDir: "./src" }, null, 2),
     );
 
     const packageJSONRaw = generatePackageJSON(projectName, options);
