@@ -7,46 +7,45 @@ import { TYPES } from "../di/types"
 export class {{resourceClass}}Controller {
     private _{{resourceVar}}Repository: {{resourceClass}}Repository
 
-    constructor(@inject(TYPES.{{resourceClass}}Repository) {{resourceVar}}Repository: {{resourceClass}}Repository
-    ){
+    constructor(@inject(TYPES.{{resourceClass}}Repository) {{resourceVar}}Repository: {{resourceClass}}Repository){
         this._{{resourceVar}}Repository = {{resourceVar}}Repository
     } 
 
     getAll = async(req: Request, res: Response, next: NextFunction) => {
         try{
-
+            res.json({ message: 'not implemented' })
         } catch(error){
             next(error)
         }
     }
 
-     getById= async(req: Request, res: Response, next: NextFunction) => {
+    getById = async(req: Request, res: Response, next: NextFunction) => {
         try{
-
+            res.json({ message: 'not implemented' })
         } catch(error){
             next(error)
         }
     }
 
-     create = async(req: Request, res: Response, next: NextFunction) => {
+    create = async(req: Request, res: Response, next: NextFunction) => {
         try{
-
+            res.json({ message: 'not implemented' })
         } catch(error){
             next(error)
         }
     }
 
-     update = async(req: Request, res: Response, next: NextFunction) => {
+    update = async(req: Request, res: Response, next: NextFunction) => {
         try{
-
+            res.json({ message: 'not implemented' })
         } catch(error){
             next(error)
         }
     }
 
-     delete = async(req: Request, res: Response, next: NextFunction) => {
+    delete = async(req: Request, res: Response, next: NextFunction) => {
         try{
-
+            res.json({ message: 'not implemented' })
         } catch(error){
             next(error)
         }
