@@ -1,6 +1,7 @@
 
 import { injectable } from "inversify"
 import { {{resourceClass}}Attributes, Create{{resourceClass}}Attributes, Update{{resourceClass}}Attributes } from '../models/{{resourceFile}}Model'
+import { {{resourceClass}}, {{resourceClass}}Attributes, Create{{resourceClass}}Attributes, Update{{resourceClass}}Attributes } from '../models/{{resourceFile}}Model'
 
 @injectable()
 export class {{resourceClass}}Repository{
@@ -10,7 +11,7 @@ export class {{resourceClass}}Repository{
     }
 
     getById = async (id: string): Promise<{{resourceClass}}Attributes> => {
-        return await {{resourceClass}}.find({where: {id}})
+        return await {{resourceClass}}.findByPk(id)
     }
 
     create = async (data: Create{{resourceClass}}Attributes): Promise<{{resourceClass}}Attributes> => {
@@ -18,7 +19,7 @@ export class {{resourceClass}}Repository{
     }
 
     update = async (id: string, data: Update{{resourceClass}}Attributes): Promise<{{resourceClass}}Attributes | null> => {
-        return await {{resourceClass}}.update({where: {id}}, data)
+        return await {{resourceClass}}.update(data, {where: {id}})
     }
 
     delete = async (id: string) => {
