@@ -1,9 +1,22 @@
 {
-  "name": "skaf",
-  "version": "0.0.1",
+  "name": "skafr",
+  "version": "0.1.0",
   "description": "Opinionated scaffolding tool for Express and React Typescript projects",
   "license": "MIT",
   "author": "Luka Hat",
+  "keywords": [
+    "cli",
+    "scaffold",
+    "express",
+    "typescript",
+    "generator",
+    "boilerplate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LukaHat/skafr.git"
+  },
+  "homepage": "https://github.com/LukaHat/skafr#readme",
   "scripts": {
     "test:dev": "npm run build && node dist/index.js init test-project",
     "test:clean": "rm -rf test-project",
@@ -11,11 +24,10 @@
     "build": "rm -rf dist && tsc && cp -r templates dist/"
   },
   "bin": {
-    "skaf": "./dist/index.js"
+    "skafr": "./dist/index.js"
   },
   "files": [
-    "dist",
-    "templates"
+    "dist"
   ],
   "engines": {
     "node": ">=22"

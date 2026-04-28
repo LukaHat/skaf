@@ -51,7 +51,7 @@ export const initCommand = async (
     });
 
     writeFileSync(
-      join(cwd(), projectName, ".skafc"),
+      join(cwd(), projectName, ".skafrc"),
       JSON.stringify({ ...options, srcDir: "./src" }, null, 2),
     );
 
