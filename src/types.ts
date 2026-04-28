@@ -10,7 +10,7 @@ export enum SupportedDBs {
   postgres = "postgres",
 }
 
-export type SkafConfig = {
+export type SkafrConfig = {
   stack: SupportedStacks;
   srcDir: string;
 };

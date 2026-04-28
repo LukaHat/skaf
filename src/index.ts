@@ -7,7 +7,7 @@ import { SupportedDBs, SupportedOrms, SupportedStacks } from "./types";
 import { addCommand } from "./commands/add";
 
 program
-  .name("skaf")
+  .name("skafr")
   .version(version)
   .description(
     "Opinionated scaffolding tool for Express and React TypeScript projects",
@@ -62,7 +62,7 @@ program
 
 program
   .command("config")
-  .description("Interactive setup for .skafc configuration file")
+  .description("Interactive setup for .skafrc configuration file")
   .action(() => {
     console.log("not implemented yet");
   });
