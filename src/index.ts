@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 
+if (Number(process.version.split(".")[0].slice(1)) < 22) {
+  console.error(
+    `skafr requires Node.js v22 or higher. Current: ${process.version}`,
+  );
+  process.exit(1);
+}
+
 import { Option, program } from "commander";
 import { version } from "../package.json";
 import { initCommand } from "./commands/init";
