@@ -158,6 +158,10 @@ export const initCommand = async (
 
     symlinkSync("./AGENTS.md", join(cwd(), projectName, "CLAUDE.md"), "file");
 
+    const typesTemplate = options.auth
+      ? "types.ts.template"
+      : "types.no-auth.ts.template";
+
     const diTypesFile = readFileSync(
       join(
         __dirname,
@@ -166,7 +170,7 @@ export const initCommand = async (
         "express",
         "init",
         "di",
-        "types.ts.template",
+        typesTemplate,
       ),
     );
 
