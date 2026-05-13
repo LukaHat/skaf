@@ -13,6 +13,7 @@ import { initCommand } from "./commands/init";
 import { SupportedDBs, SupportedOrms, SupportedStacks } from "./types";
 import { addCommand } from "./commands/add";
 import { uninstallCommand } from "./commands/uninstall";
+import { assertSkafrProject } from "./config";
 
 program
   .name("skafr")
@@ -65,14 +66,14 @@ program
   .command("list")
   .description("List all generated resources and their file paths")
   .action(() => {
-    console.log("not implemented yet");
+    assertSkafrProject();
   });
 
 program
   .command("config")
   .description("Interactive setup for .skafrc configuration file")
   .action(() => {
-    console.log("not implemented yet");
+    assertSkafrProject();
   });
 
 program

@@ -1,5 +1,5 @@
 import { existsSync, readFileSync, writeFileSync } from "fs";
-import { loadConfig } from "../config";
+import { assertSkafrProject, loadConfig } from "../config";
 import { buildResourceContext, renderTemplate } from "../templateEngine";
 import { join } from "path";
 
@@ -8,6 +8,8 @@ export const addCommand = (
   options: { force: boolean; crud: boolean },
 ) => {
   try {
+    assertSkafrProject();
+
     const config = loadConfig();
     const casingVariants = buildResourceContext(resource);
 

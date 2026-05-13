@@ -2,6 +2,16 @@ import fs from "fs";
 import path from "path";
 import { SkafrConfig, SupportedStacks } from "./types";
 
+export const assertSkafrProject = () => {
+  const skafrcExists = fs.existsSync(path.join(process.cwd(), ".skafrc"));
+  if (!skafrcExists) {
+    console.error(
+      "Not a skafr project (.skafrc not found). Run `skaf init` first.",
+    );
+    process.exit(1);
+  }
+};
+
 export const loadConfig = (): SkafrConfig => {
   const configPath = path.join(process.cwd(), ".skafrc");
   let parsedConfig: unknown;
