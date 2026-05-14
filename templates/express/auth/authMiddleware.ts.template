@@ -9,7 +9,7 @@ import { config } from "../config";
 import { ErrorStrings } from "../constants/appStrings"
 
 @injectable()
-class AuthMiddleware {
+export default class AuthMiddleware {
   private _userRepository: UserRepository;
 
   constructor(@inject(TYPES.UserRepository) userRepository: UserRepository) {
@@ -42,5 +42,3 @@ class AuthMiddleware {
     });
   };
 }
-
-export = AuthMiddleware;

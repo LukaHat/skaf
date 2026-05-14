@@ -41,6 +41,7 @@ export const initCommand = async (
       "src/utils",
       "src/di",
       "src/constants",
+      "src/db/repositories",
     ];
 
     mkdirSync(join(cwd(), projectName));
@@ -350,6 +351,29 @@ export const initCommand = async (
       writeFileSync(
         join(cwd(), projectName, "src", "middlewares", "authMiddleware.ts"),
         authMiddlewareFile,
+      );
+
+      const userRepositoryFile = readFileSync(
+        join(
+          __dirname,
+          "..",
+          "templates",
+          "express",
+          "auth",
+          "userRepository.ts.template",
+        ),
+      );
+
+      writeFileSync(
+        join(
+          cwd(),
+          projectName,
+          "src",
+          "db",
+          "repositories",
+          "userRepository.ts",
+        ),
+        userRepositoryFile,
       );
 
       const authControllerFile = readFileSync(
