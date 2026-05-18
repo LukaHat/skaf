@@ -110,7 +110,7 @@ export const addCommand = (
     const apiRouterPath = join(config.srcDir, "routes", "apiRouter.ts");
     const apiRouterContent = readFileSync(apiRouterPath, "utf-8");
 
-    const importLine = `import ${casingVariants.resourceVar}Router from './routes/${casingVariants.resourceFile}Router'`;
+    const importLine = `import ${casingVariants.resourceVar}Router from './${casingVariants.resourceFile}Router'`;
 
     if (!apiRouterContent.includes(importLine)) {
       const lines = apiRouterContent.split("\n");

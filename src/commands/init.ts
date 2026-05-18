@@ -444,7 +444,7 @@ export const initCommand = async (
       const apiRouterPath = join(cwd(), projectName, "src", "routes", "apiRouter.ts");
       const apiRouterContent = readFileSync(apiRouterPath, "utf-8");
 
-      const importLine = `import authRouter from './routes/authRouter'`;
+      const importLine = `import authRouter from './authRouter'`;
 
       if (!apiRouterContent.includes(importLine)) {
         const lines = apiRouterContent.split("\n");
